@@ -39,7 +39,7 @@ export default function SignUp(){
                         placeholder="Password"
                         style={styles.textInput}
                         underlineColorAndroid={'transparent'}
-                        />
+                        /> 
                         <TouchableOpacity style={styles.Signinbtn}  activeOpacity={0.8}>
                             <Text style={{color: 'white',fontSize: 16, }}> SignUp</Text>
                         </TouchableOpacity>
