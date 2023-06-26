@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SplashScreen from "../screens/SplashScreen";
 import { NavigationContainer } from '@react-navigation/native';
 import Login from "../screens/Login";
+import SignUp from "../screens/SignUp";
 
 
 
@@ -30,6 +31,13 @@ export default function Authentication (){
                 <Stack.Screen 
                     name="Login"
                     component={Login}
+                    options={{
+                        headerShown: false
+                    }}
+                />
+                <Stack.Screen 
+                    name="SignUp"
+                    component={SignUp}
                     options={{
                         headerShown: false
                     }}

@@ -4,7 +4,7 @@ import { colors } from "../components/colors";
 
 
 
-export default function Login (){
+export default function Login ({navigation}){
     return(
         <View style={{backgroundColor:colors.grey1, flex:1, }}>
             
@@ -16,6 +16,7 @@ export default function Login (){
                 resizeMode="contain" />
                 <Text style={{color:'white', fontSize:17, bottom:35 }}>Fill The Below Information To Log in</Text>
             </View>
+            
             <View style={styles.Login}>
                 <Text style={styles.loginText}>Login Account</Text>
                 <View style={{marginTop:30}}>
@@ -67,7 +68,7 @@ export default function Login (){
             </View>
             <View style={{alignItems:'center', bottom:95}} >
                 <Text style={{fontSize:14, fontWeight:'bold'}} >Don't have an Account?</Text>
-                <TouchableOpacity activeOpacity={0.4}>
+                <TouchableOpacity activeOpacity={0.4} onPress={() => navigation.navigate('SignUp')}>
                 <Text style={{color:'#25a5db', fontWeight:'bold'}}>Register</Text>
                 </TouchableOpacity>
                 

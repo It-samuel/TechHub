@@ -11,7 +11,7 @@ import SignUp from "./screens/SignUp";
 export default function App() {
   return (
     <View style={styles.container}>
-      <SignUp />
+      <RootNavigator />
     </View>
   )
 }
