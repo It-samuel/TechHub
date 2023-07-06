@@ -38,7 +38,7 @@ export default function Login ({navigation}){
                         <TouchableOpacity activeOpacity={0.4}>
                         <Text style={{color:'#25a5db', fontWeight:'bold',marginVertical:20, marginLeft:-110}}>Forgot Password</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.loginbtn}  activeOpacity={0.8}>
+                        <TouchableOpacity style={styles.loginbtn}  activeOpacity={0.8} onPress={() => navigation.navigate('DrawerNav')}>
                             <Text style={{color: 'white',fontSize: 16, }}> Login</Text>
                         </TouchableOpacity>
                         <Text style={{bottom: 33}}>   Login with</Text>

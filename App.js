@@ -3,8 +3,7 @@ import { View, Text, StyleSheet, StatusBar,  } from "react-native";
 import SplashScreen from "./screens/SplashScreen";
 import { colors } from "./components/colors";
 import Login from "./screens/Login";
-import OnboardingScrn from "./screens/OnboardingScrn";
-import Authentication from "./Navigation/Authentication";
+import HomeScreen from "./screens/HomeScreen";
 import RootNavigator from "./Navigation/RootNavigator";
 import SignUp from "./screens/SignUp";
 
