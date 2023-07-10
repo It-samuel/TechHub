@@ -9,6 +9,7 @@ import SignUp from "../screens/SignUp";
 import HomeScreen from "../screens/HomeScreen";
 import BottomNav from "../screens/BottomTabs";
 import DrawerNav from "./DrawerNav";
+import EditProfile from "../screens/EditProfile";
 
 
 
@@ -50,6 +51,14 @@ export default function Authentication (){
                     component={DrawerNav}
                     options={{
                         headerShown: false
+                    }}
+                />
+                <Stack.Screen 
+                    name="EditProfile"
+                    component={EditProfile}
+                    options={{
+                        headerShown: false
+                        
                     }}
                 />
             </Stack.Navigator>

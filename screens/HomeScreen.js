@@ -1,16 +1,20 @@
 import React from "react";
-import { View, Text, StyleSheet,Image, ScrollView } from "react-native";
+import { View, Text, StyleSheet,Image, ScrollView,Dimensions,FlatList } from "react-native";
 import Swiper from "react-native-swiper";
 import HomeHeader from "../screens/HomeHeader";
 import { colors } from "../components/colors";
 import { TouchableOpacity } from "react-native";
+import JobsCard from "./JobsCard";
+import { jobsdata } from "../components/Data";
 
 
-export default function HomeScreen(){
+
+export default function HomeScreen({navigation}){
+    const SCREEN_WIDTH = Dimensions.get('window').width
     return(
         <View style={{flex:1}}>
-            <HomeHeader />
-            <ScrollView>
+            <HomeHeader navigation={navigation} />
+            <ScrollView >
             <View style={styles.headerTextView}>
                 <Text style={styles.header}>Free Courses</Text>
             </View>
@@ -81,163 +85,74 @@ export default function HomeScreen(){
             </Swiper>
             
             </View>
+            
+            <View style={styles.headerTextView}>
+                <Text style={styles.header}>Job Offers</Text>
+            </View>
+            <View style={{width:SCREEN_WIDTH,paddingTop:10}}>
+            <View>
+                <FlatList 
+                    style={{marginTop:10, marginBottom:10}}
+                    horizontal ={true}
+                    showsHorizontalScrollIndicator ={false}
+                    data={jobsdata}
+                    keyExtractor={(item, index)=>index.toString}
+                    renderItem={({item})=>(
+                        <View style={{marginRight:5}}> 
+                            <JobsCard
+                                screenwidth={SCREEN_WIDTH*0.85}
+                                jobTitle = {item.jobTitle}
+                                jobDescription={item.jobDescription}
+                                experience={item.experience}
+                                skills={item.skills}
+                                clock={item.clock}
+                                showsHorizontalScrollIndicator ={false}
+                                
+                                
+                            />
+                        </View>
+                    )}
+                />
+            </View>
+            </View>
             <View style={styles.headerTextView}>
                 <Text style={styles.header}>Activity</Text>
             </View>
-            <View>
-                <Text>
-                What is React Native?
-React Native is an open-source JavaScript framework, designed for building apps on multiple platforms like iOS, Android, and also web applications, utilizing the very same code base. It is based on React, and it brings all its glory to mobile app development.
-
-Both frameworks: ReactJS (web) and React Native were brought to life by Facebook. React Native was a Hackathon project aiming at solving the company’s biggest pain point - maintaining two code bases for their app. The problem with maintaining two code bases for such a big app? Work duplication and, at times, solving the same problem in two different ways. React Native is a straightforward answer to these problems.
-
-React Native uses JavaScript to compile the app’s user interface, but using native-OS views. For more complex features, it allows code implementation in OS-native languages (Swift and Objective-C for iOS, andWhat is React Native?
-React Native is an open-source JavaScript framework, designed for building apps on multiple platforms like iOS, Android, and also web applications, utilizing the very same code base. It is based on React, and it brings all its glory to mobile app development.
-
-Both frameworks: ReactJS (web) and React Native were brought to life by Facebook. React Native was a Hackathon project aiming at solving the company’s biggest pain point - maintaining two code bases for their app. The problem with maintaining two code bases for such a big app? Work duplication and, at times, solving the same problem in two different ways. React Native is a straightforward answer to these problems.
-
-React Native uses JavaScript to compile the app’s user interface, but using native-OS views. For more complex features, it allows code implementation in OS-native languages (Swift and Objective-C for iOS, andWhat is React Native?
-React Native is an open-source JavaScript framework, designed for building apps on multiple platforms like iOS, Android, and also web applications, utilizing the very same code base. It is based on React, and it brings all its glory to mobile app development.
-
-Both frameworks: ReactJS (web) and React Native were brought to life by Facebook. React Native was a Hackathon project aiming at solving the company’s biggest pain point - maintaining two code bases for their app. The problem with maintaining two code bases for such a big app? Work duplication and, at times, solving the same problem in two different ways. React Native is a straightforward answer to these problems.
-
-React Native uses JavaScript to compile the app’s user interface, but using native-OS views. For more complex features, it allows code implementation in OS-native languages (Swift and Objective-C for iOS, andWhat is React Native?
-React Native is an open-source JavaScript framework, designed for building apps on multiple platforms like iOS, Android, and also web applications, utilizing the very same code base. It is based on React, and it brings all its glory to mobile app development.
-
-Both frameworks: ReactJS (web) and React Native were brought to life by Facebook. React Native was a Hackathon project aiming at solving the company’s biggest pain point - maintaining two code bases for their app. The problem with maintaining two code bases for such a big app? Work duplication and, at times, solving the same problem in two different ways. React Native is a straightforward answer to these problems.
-
-React Native uses JavaScript to compile the app’s user interface, but using native-OS views. For more complex features, it allows code implementation in OS-native languages (Swift and Objective-C for iOS, andWhat is React Native?
-React Native is an open-source JavaScript framework, designed for building apps on multiple platforms like iOS, Android, and also web applications, utilizing the very same code base. It is based on React, and it brings all its glory to mobile app development.
-
-Both frameworks: ReactJS (web) and React Native were brought to life by Facebook. React Native was a Hackathon project aiming at solving the company’s biggest pain point - maintaining two code bases for their app. The problem with maintaining two code bases for such a big app? Work duplication and, at times, solving the same problem in two different ways. React Native is a straightforward answer to these problems.
-
-React Native uses JavaScript to compile the app’s user interface, but using native-OS views. For more complex features, it allows code implementation in OS-native languages (Swift and Objective-C for iOS, andWhat is React Native?
-React Native is an open-source JavaScript framework, designed for building apps on multiple platforms like iOS, Android, and also web applications, utilizing the very same code base. It is based on React, and it brings all its glory to mobile app development.
-
-Both frameworks: ReactJS (web) and React Native were brought to life by Facebook. React Native was a Hackathon project aiming at solving the company’s biggest pain point - maintaining two code bases for their app. The problem with maintaining two code bases for such a big app? Work duplication and, at times, solving the same problem in two different ways. React Native is a straightforward answer to these problems.
-
-React Native uses JavaScript to compile the app’s user interface, but using native-OS views. For more complex features, it allows code implementation in OS-native languages (Swift and Objective-C for iOS, andWhat is React Native?
-React Native is an open-source JavaScript framework, designed for building apps on multiple platforms like iOS, Android, and also web applications, utilizing the very same code base. It is based on React, and it brings all its glory to mobile app development.
-
-Both frameworks: ReactJS (web) and React Native were brought to life by Facebook. React Native was a Hackathon project aiming at solving the company’s biggest pain point - maintaining two code bases for their app. The problem with maintaining two code bases for such a big app? Work duplication and, at times, solving the same problem in two different ways. React Native is a straightforward answer to these problems.
-
-React Native uses JavaScript to compile the app’s user interface, but using native-OS views. For more complex features, it allows code implementation in OS-native languages (Swift and Objective-C for iOS, andWhat is React Native?
-React Native is an open-source JavaScript framework, designed for building apps on multiple platforms like iOS, Android, and also web applications, utilizing the very same code base. It is based on React, and it brings all its glory to mobile app development.
-
-Both frameworks: ReactJS (web) and React Native were brought to life by Facebook. React Native was a Hackathon project aiming at solving the company’s biggest pain point - maintaining two code bases for their app. The problem with maintaining two code bases for such a big app? Work duplication and, at times, solving the same problem in two different ways. React Native is a straightforward answer to these problems.
-
-React Native uses JavaScript to compile the app’s user interface, but using native-OS views. For more complex features, it allows code implementation in OS-native languages (Swift and Objective-C for iOS, andWhat is React Native?
-React Native is an open-source JavaScript framework, designed for building apps on multiple platforms like iOS, Android, and also web applications, utilizing the very same code base. It is based on React, and it brings all its glory to mobile app development.
-
-Both frameworks: ReactJS (web) and React Native were brought to life by Facebook. React Native was a Hackathon project aiming at solving the company’s biggest pain point - maintaining two code bases for their app. The problem with maintaining two code bases for such a big app? Work duplication and, at times, solving the same problem in two different ways. React Native is a straightforward answer to these problems.
-
-React Native uses JavaScript to compile the app’s user interface, but using native-OS views. For more complex features, it allows code implementation in OS-native languages (Swift and Objective-C for iOS, andWhat is React Native?
-React Native is an open-source JavaScript framework, designed for building apps on multiple platforms like iOS, Android, and also web applications, utilizing the very same code base. It is based on React, and it brings all its glory to mobile app development.
-
-Both frameworks: ReactJS (web) and React Native were brought to life by Facebook. React Native was a Hackathon project aiming at solving the company’s biggest pain point - maintaining two code bases for their app. The problem with maintaining two code bases for such a big app? Work duplication and, at times, solving the same problem in two different ways. React Native is a straightforward answer to these problems.
-
-React Native uses JavaScript to compile the app’s user interface, but using native-OS views. For more complex features, it allows code implementation in OS-native languages (Swift and Objective-C for iOS, andWhat is React Native?
-React Native is an open-source JavaScript framework, designed for building apps on multiple platforms like iOS, Android, and also web applications, utilizing the very same code base. It is based on React, and it brings all its glory to mobile app development.
-
-Both frameworks: ReactJS (web) and React Native were brought to life by Facebook. React Native was a Hackathon project aiming at solving the company’s biggest pain point - maintaining two code bases for their app. The problem with maintaining two code bases for such a big app? Work duplication and, at times, solving the same problem in two different ways. React Native is a straightforward answer to these problems.
-
-React Native uses JavaScript to compile the app’s user interface, but using native-OS views. For more complex features, it allows code implementation in OS-native languages (Swift and Objective-C for iOS, andWhat is React Native?
-React Native is an open-source JavaScript framework, designed for building apps on multiple platforms like iOS, Android, and also web applications, utilizing the very same code base. It is based on React, and it brings all its glory to mobile app development.
-
-Both frameworks: ReactJS (web) and React Native were brought to life by Facebook. React Native was a Hackathon project aiming at solving the company’s biggest pain point - maintaining two code bases for their app. The problem with maintaining two code bases for such a big app? Work duplication and, at times, solving the same problem in two different ways. React Native is a straightforward answer to these problems.
-
-React Native uses JavaScript to compile the app’s user interface, but using native-OS views. For more complex features, it allows code implementation in OS-native languages (Swift and Objective-C for iOS, andWhat is React Native?
-React Native is an open-source JavaScript framework, designed for building apps on multiple platforms like iOS, Android, and also web applications, utilizing the very same code base. It is based on React, and it brings all its glory to mobile app development.
-
-Both frameworks: ReactJS (web) and React Native were brought to life by Facebook. React Native was a Hackathon project aiming at solving the company’s biggest pain point - maintaining two code bases for their app. The problem with maintaining two code bases for such a big app? Work duplication and, at times, solving the same problem in two different ways. React Native is a straightforward answer to these problems.
-
-React Native uses JavaScript to compile the app’s user interface, but using native-OS views. For more complex features, it allows code implementation in OS-native languages (Swift and Objective-C for iOS, andWhat is React Native?
-React Native is an open-source JavaScript framework, designed for building apps on multiple platforms like iOS, Android, and also web applications, utilizing the very same code base. It is based on React, and it brings all its glory to mobile app development.
-
-Both frameworks: ReactJS (web) and React Native were brought to life by Facebook. React Native was a Hackathon project aiming at solving the company’s biggest pain point - maintaining two code bases for their app. The problem with maintaining two code bases for such a big app? Work duplication and, at times, solving the same problem in two different ways. React Native is a straightforward answer to these problems.
-
-React Native uses JavaScript to compile the app’s user interface, but using native-OS views. For more complex features, it allows code implementation in OS-native languages (Swift and Objective-C for iOS, andWhat is React Native?
-React Native is an open-source JavaScript framework, designed for building apps on multiple platforms like iOS, Android, and also web applications, utilizing the very same code base. It is based on React, and it brings all its glory to mobile app development.
-
-Both frameworks: ReactJS (web) and React Native were brought to life by Facebook. React Native was a Hackathon project aiming at solving the company’s biggest pain point - maintaining two code bases for their app. The problem with maintaining two code bases for such a big app? Work duplication and, at times, solving the same problem in two different ways. React Native is a straightforward answer to these problems.
-
-React Native uses JavaScript to compile the app’s user interface, but using native-OS views. For more complex features, it allows code implementation in OS-native languages (Swift and Objective-C for iOS, andWhat is React Native?
-React Native is an open-source JavaScript framework, designed for building apps on multiple platforms like iOS, Android, and also web applications, utilizing the very same code base. It is based on React, and it brings all its glory to mobile app development.
-
-Both frameworks: ReactJS (web) and React Native were brought to life by Facebook. React Native was a Hackathon project aiming at solving the company’s biggest pain point - maintaining two code bases for their app. The problem with maintaining two code bases for such a big app? Work duplication and, at times, solving the same problem in two different ways. React Native is a straightforward answer to these problems.
-
-React Native uses JavaScript to compile the app’s user interface, but using native-OS views. For more complex features, it allows code implementation in OS-native languages (Swift and Objective-C for iOS, andWhat is React Native?
-React Native is an open-source JavaScript framework, designed for building apps on multiple platforms like iOS, Android, and also web applications, utilizing the very same code base. It is based on React, and it brings all its glory to mobile app development.
-
-Both frameworks: ReactJS (web) and React Native were brought to life by Facebook. React Native was a Hackathon project aiming at solving the company’s biggest pain point - maintaining two code bases for their app. The problem with maintaining two code bases for such a big app? Work duplication and, at times, solving the same problem in two different ways. React Native is a straightforward answer to these problems.
-
-React Native uses JavaScript to compile the app’s user interface, but using native-OS views. For more complex features, it allows code implementation in OS-native languages (Swift and Objective-C for iOS, andWhat is React Native?
-React Native is an open-source JavaScript framework, designed for building apps on multiple platforms like iOS, Android, and also web applications, utilizing the very same code base. It is based on React, and it brings all its glory to mobile app development.
-
-Both frameworks: ReactJS (web) and React Native were brought to life by Facebook. React Native was a Hackathon project aiming at solving the company’s biggest pain point - maintaining two code bases for their app. The problem with maintaining two code bases for such a big app? Work duplication and, at times, solving the same problem in two different ways. React Native is a straightforward answer to these problems.
-
-React Native uses JavaScript to compile the app’s user interface, but using native-OS views. For more complex features, it allows code implementation in OS-native languages (Swift and Objective-C for iOS, andWhat is React Native?
-React Native is an open-source JavaScript framework, designed for building apps on multiple platforms like iOS, Android, and also web applications, utilizing the very same code base. It is based on React, and it brings all its glory to mobile app development.
-
-Both frameworks: ReactJS (web) and React Native were brought to life by Facebook. React Native was a Hackathon project aiming at solving the company’s biggest pain point - maintaining two code bases for their app. The problem with maintaining two code bases for such a big app? Work duplication and, at times, solving the same problem in two different ways. React Native is a straightforward answer to these problems.
-
-React Native uses JavaScript to compile the app’s user interface, but using native-OS views. For more complex features, it allows code implementation in OS-native languages (Swift and Objective-C for iOS, andWhat is React Native?
-React Native is an open-source JavaScript framework, designed for building apps on multiple platforms like iOS, Android, and also web applications, utilizing the very same code base. It is based on React, and it brings all its glory to mobile app development.
-
-Both frameworks: ReactJS (web) and React Native were brought to life by Facebook. React Native was a Hackathon project aiming at solving the company’s biggest pain point - maintaining two code bases for their app. The problem with maintaining two code bases for such a big app? Work duplication and, at times, solving the same problem in two different ways. React Native is a straightforward answer to these problems.
-
-React Native uses JavaScript to compile the app’s user interface, but using native-OS views. For more complex features, it allows code implementation in OS-native languages (Swift and Objective-C for iOS, andWhat is React Native?
-React Native is an open-source JavaScript framework, designed for building apps on multiple platforms like iOS, Android, and also web applications, utilizing the very same code base. It is based on React, and it brings all its glory to mobile app development.
-
-Both frameworks: ReactJS (web) and React Native were brought to life by Facebook. React Native was a Hackathon project aiming at solving the company’s biggest pain point - maintaining two code bases for their app. The problem with maintaining two code bases for such a big app? Work duplication and, at times, solving the same problem in two different ways. React Native is a straightforward answer to these problems.
-
-React Native uses JavaScript to compile the app’s user interface, but using native-OS views. For more complex features, it allows code implementation in OS-native languages (Swift and Objective-C for iOS, andWhat is React Native?
-React Native is an open-source JavaScript framework, designed for building apps on multiple platforms like iOS, Android, and also web applications, utilizing the very same code base. It is based on React, and it brings all its glory to mobile app development.
-
-Both frameworks: ReactJS (web) and React Native were brought to life by Facebook. React Native was a Hackathon project aiming at solving the company’s biggest pain point - maintaining two code bases for their app. The problem with maintaining two code bases for such a big app? Work duplication and, at times, solving the same problem in two different ways. React Native is a straightforward answer to these problems.
-
-React Native uses JavaScript to compile the app’s user interface, but using native-OS views. For more complex features, it allows code implementation in OS-native languages (Swift and Objective-C for iOS, andWhat is React Native?
-React Native is an open-source JavaScript framework, designed for building apps on multiple platforms like iOS, Android, and also web applications, utilizing the very same code base. It is based on React, and it brings all its glory to mobile app development.
-
-Both frameworks: ReactJS (web) and React Native were brought to life by Facebook. React Native was a Hackathon project aiming at solving the company’s biggest pain point - maintaining two code bases for their app. The problem with maintaining two code bases for such a big app? Work duplication and, at times, solving the same problem in two different ways. React Native is a straightforward answer to these problems.
-
-React Native uses JavaScript to compile the app’s user interface, but using native-OS views. For more complex features, it allows code implementation in OS-native languages (Swift and Objective-C for iOS, andWhat is React Native?
-React Native is an open-source JavaScript framework, designed for building apps on multiple platforms like iOS, Android, and also web applications, utilizing the very same code base. It is based on React, and it brings all its glory to mobile app development.
-
-Both frameworks: ReactJS (web) and React Native were brought to life by Facebook. React Native was a Hackathon project aiming at solving the company’s biggest pain point - maintaining two code bases for their app. The problem with maintaining two code bases for such a big app? Work duplication and, at times, solving the same problem in two different ways. React Native is a straightforward answer to these problems.
-
-React Native uses JavaScript to compile the app’s user interface, but using native-OS views. For more complex features, it allows code implementation in OS-native languages (Swift and Objective-C for iOS, andWhat is React Native?
-React Native is an open-source JavaScript framework, designed for building apps on multiple platforms like iOS, Android, and also web applications, utilizing the very same code base. It is based on React, and it brings all its glory to mobile app development.
-
-Both frameworks: ReactJS (web) and React Native were brought to life by Facebook. React Native was a Hackathon project aiming at solving the company’s biggest pain point - maintaining two code bases for their app. The problem with maintaining two code bases for such a big app? Work duplication and, at times, solving the same problem in two different ways. React Native is a straightforward answer to these problems.
-
-React Native uses JavaScript to compile the app’s user interface, but using native-OS views. For more complex features, it allows code implementation in OS-native languages (Swift and Objective-C for iOS, andWhat is React Native?
-React Native is an open-source JavaScript framework, designed for building apps on multiple platforms like iOS, Android, and also web applications, utilizing the very same code base. It is based on React, and it brings all its glory to mobile app development.
-
-Both frameworks: ReactJS (web) and React Native were brought to life by Facebook. React Native was a Hackathon project aiming at solving the company’s biggest pain point - maintaining two code bases for their app. The problem with maintaining two code bases for such a big app? Work duplication and, at times, solving the same problem in two different ways. React Native is a straightforward answer to these problems.
-
-React Native uses JavaScript to compile the app’s user interface, but using native-OS views. For more complex features, it allows code implementation in OS-native languages (Swift and Objective-C for iOS, andWhat is React Native?
-React Native is an open-source JavaScript framework, designed for building apps on multiple platforms like iOS, Android, and also web applications, utilizing the very same code base. It is based on React, and it brings all its glory to mobile app development.
-
-Both frameworks: ReactJS (web) and React Native were brought to life by Facebook. React Native was a Hackathon project aiming at solving the company’s biggest pain point - maintaining two code bases for their app. The problem with maintaining two code bases for such a big app? Work duplication and, at times, solving the same problem in two different ways. React Native is a straightforward answer to these problems.
-
-React Native uses JavaScript to compile the app’s user interface, but using native-OS views. For more complex features, it allows code implementation in OS-native languages (Swift and Objective-C for iOS, andWhat is React Native?
-React Native is an open-source JavaScript framework, designed for building apps on multiple platforms like iOS, Android, and also web applications, utilizing the very same code base. It is based on React, and it brings all its glory to mobile app development.
-
-Both frameworks: ReactJS (web) and React Native were brought to life by Facebook. React Native was a Hackathon project aiming at solving the company’s biggest pain point - maintaining two code bases for their app. The problem with maintaining two code bases for such a big app? Work duplication and, at times, solving the same problem in two different ways. React Native is a straightforward answer to these problems.
-
-React Native uses JavaScript to compile the app’s user interface, but using native-OS views. For more complex features, it allows code implementation in OS-native languages (Swift and Objective-C for iOS, andWhat is React Native?
-React Native is an open-source JavaScript framework, designed for building apps on multiple platforms like iOS, Android, and also web applications, utilizing the very same code base. It is based on React, and it brings all its glory to mobile app development.
-
-Both frameworks: ReactJS (web) and React Native were brought to life by Facebook. React Native was a Hackathon project aiming at solving the company’s biggest pain point - maintaining two code bases for their app. The problem with maintaining two code bases for such a big app? Work duplication and, at times, solving the same problem in two different ways. React Native is a straightforward answer to these problems.
-
-React Native uses JavaScript to compile the app’s user interface, but using native-OS views. For more complex features, it allows code implementation in OS-native languages (Swift and Objective-C for iOS, andWhat is React Native?
-React Native is an open-source JavaScript framework, designed for building apps on multiple platforms like iOS, Android, and also web applications, utilizing the very same code base. It is based on React, and it brings all its glory to mobile app development.
-
-Both frameworks: ReactJS (web) and React Native were brought to life by Facebook. React Native was a Hackathon project aiming at solving the company’s biggest pain point - maintaining two code bases for their app. The problem with maintaining two code bases for such a big app? Work duplication and, at times, solving the same problem in two different ways. React Native is a straightforward answer to these problems.
-
-React Native uses JavaScript to compile the app’s user interface, but using native-OS views. For more complex features, it allows code implementation in OS-native languages (Swift and Objective-C for iOS, and
+            <View style={{borderBottomWidth:1}}>
+                <Text style={{alignSelf:'center', fontSize:15, fontWeight:'bold'}}>NewsLetters</Text>
+                <Text>Mobile application development is the process of making software for smartphones, tablets 
+                and digital assistants, most commonly for the Android and iOS operating systems. 
+                The software can be preinstalled on the device, downloaded from a mobile app store or accessed 
+                through a mobile web browser. The programming and markup languages used for this kind of 
+                software development include Java, Swift, C# and HTML5.
                 </Text>
+                </View>
+            <View style={{borderBottomWidth:1}}>
+                <Text  style={{alignSelf:'center', fontSize:15, fontWeight:'bold'}}>Updates</Text>
+                <Text>Mobile app development is rapidly growing. From retail, telecommunications and e-commerce to insurance, 
+                healthcare and government, organizations across industries must meet user expectations for real-time, 
+                convenient ways to conduct transactions and access information. Today, mobile devices—and the mobile 
+                applications that unlock their value—are the most popular way for people and businesses to connect to the
+                internet. To stay relevant, responsive and successful, organizations need to develop the mobile 
+                applications that their customers, partners and employees demand.</Text>
+            </View>
+            <View style={{borderBottomWidth:1}}>
+                <Text style={{alignSelf:'center', fontSize:15, fontWeight:'bold'}}>NewsLetters</Text>
+                <Text>Mobile application development is the process of making software for smartphones, tablets 
+                and digital assistants, most commonly for the Android and iOS operating systems. 
+                The software can be preinstalled on the device, downloaded from a mobile app store or accessed 
+                through a mobile web browser. The programming and markup languages used for this kind of 
+                software development include Java, Swift, C# and HTML5.
+                </Text>
+                </View>
+            <View style={{borderBottomWidth:1}}>
+                <Text style={{alignSelf:'center', fontSize:15, fontWeight:'bold'}}>Updates</Text>
+                <Text>Mobile app development is rapidly growing. From retail, telecommunications and e-commerce to insurance, 
+                healthcare and government, organizations across industries must meet user expectations for real-time, 
+                convenient ways to conduct transactions and access information. Today, mobile devices—and the mobile 
+                applications that unlock their value—are the most popular way for people and businesses to connect to the
+                internet. To stay relevant, responsive and successful, organizations need to develop the mobile 
+                applications that their customers, partners and employees demand.</Text>
             </View>
             </ScrollView>
         </View>

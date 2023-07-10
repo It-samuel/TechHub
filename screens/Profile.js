@@ -1,12 +1,12 @@
 import React from 'react';
 import {View, SafeAreaView, StyleSheet, Image, Text, TouchableOpacity, ScrollView} from 'react-native';
-
+import EditProfile from '../screens/EditProfile';
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 
 
-const ProfileScreen = () => {
+const ProfileScreen = ({navigation}) => {
 
 
 
@@ -18,10 +18,10 @@ return (
 
     <View style={styles.userInfoSection}>
         <View style={{flexDirection:"row", justifyContent:'space-between', alignContent:'flex-end'}}>
-        <TouchableOpacity >
+        <TouchableOpacity  onPress={() => {navigation.toggleDrawer()}} activeOpacity={0.4} >
             <Icon name="menu"  size={35} style={{marginLeft:-14}} />
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('EditProfile')}>
         <Icon name="account-edit"  size={35}  style={{marginRight:-14}} />
         </TouchableOpacity>
         </View>
@@ -33,8 +33,8 @@ return (
             <Text style={[styles.title, {
             marginTop:15,
             marginBottom: 5,
-            }]}>User</Text>
-            <Text style={styles.caption}>@User</Text>
+            }]}>John kim</Text>
+            <Text style={styles.caption}>@Johnkim</Text>
             
           </View>
         </View>
@@ -51,7 +51,7 @@ return (
         </View>
         <View style={styles.row}>
           <Icon name="email" color="#777777" size={20}/>
-          <Text style={{color:"#777777", marginLeft: 20}}>User@email.com</Text>
+          <Text style={{color:"#777777", marginLeft: 20}}>Johnkim@email.com</Text>
         </View>
       </View>
 
@@ -78,8 +78,8 @@ return (
         </TouchableOpacity>
         <TouchableOpacity onPress={() => {}}>
           <View style={styles.menuItem}>
-            <Icon name="credit-card" color="#FF6347" size={25}/>
-            <Text style={styles.menuItemText}>Payment</Text>
+            <Icon name="folder-outline" color="#FF6347" size={25}/>
+            <Text style={styles.menuItemText}>Documents</Text>
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => {}}>

@@ -3,11 +3,13 @@ import { SafeAreaView, TextInput,StatusBar } from "react-native";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { colors } from "../components/colors";
 import { withBadge, Icon, } from "@rneui/base";
+import DrawerNav from "../Navigation/DrawerNav";
+import { Badge } from "react-native-elements";
 
 
 export default function HomeHeader ({navigation}){
 
-const BadgeIcon  = withBadge(0)(Icon)
+const BadgeIcon  = withBadge(1)(Icon)
 
     return(
         <SafeAreaView>
@@ -36,12 +38,19 @@ const BadgeIcon  = withBadge(0)(Icon)
                             <Image source={require("../Images/find.png")}
                                 style={{height: 26, width:26,   }}
                                 resizeMode="contain" />
+                            
                             </View>
                             
                     <TouchableOpacity >
                     <Image source={require("../Images/notification.png")}
                         style={{height: 25, width:50, marginLeft:5 }}
-                        resizeMode="contain" />
+                        resizeMode="contain"
+                        
+                        />
+                        <Badge
+                        status="error"
+                        containerStyle={{ position: 'absolute', top:1, right:15 }}
+                        />
                     </TouchableOpacity>
                     
                         

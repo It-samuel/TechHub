@@ -10,12 +10,16 @@ import Connections from "../screens/Connections";
 import Help from "../screens/Help";
 import Settings from "../screens/Settings";
 import MyPhotos from "../screens/MyPhotos";
+import HomeScreen from "../screens/HomeScreen";
+import HomeHeader from "../screens/HomeHeader";
+import Videos from "../screens/Videos";
+import Events from "../screens/Events";
 
 
 
 const Drawer = createDrawerNavigator()
 
-export default function DrawerNav(){
+export default function DrawerNav({navigation}){
     return(
         <Drawer.Navigator  drawerContent= { (props) => <DrawerHeader {...props} />} >
             
@@ -41,6 +45,27 @@ export default function DrawerNav(){
                 }
             />
             <Drawer.Screen 
+                name="Events"
+                component={Events}
+
+
+                options={
+                    {
+                        title:'Events',
+                        headerShown: false,
+                        drawerIcon:({focussed,size})=>(
+                            <Icon 
+                                type="material-community"
+                                name="calendar-month-outline"
+                                color={focussed ? '#7cc' :colors.gray2}
+                                size={size}
+                            />
+
+                        )
+                    }
+                }
+            />
+            <Drawer.Screen 
                 name="MyPhotos"
                 component={MyPhotos}
 
@@ -52,7 +77,28 @@ export default function DrawerNav(){
                         drawerIcon:({focussed,size})=>(
                             <Icon  
                                 type="material-community"
-                                name="domain"
+                                name="image"
+                                color={focussed ? '#7cc' :colors.gray2}
+                                size={size}
+                            />
+
+                        )
+                    }
+                }
+            />
+            <Drawer.Screen 
+                name="MyVideos"
+                component={Videos}
+
+
+                options={
+                    {
+                        title:'My Videos',
+                        headerShown: false,
+                        drawerIcon:({focussed,size})=>(
+                            <Icon  
+                                type="material-community"
+                                name="video"
                                 color={focussed ? '#7cc' :colors.gray2}
                                 size={size}
                             />
@@ -68,12 +114,12 @@ export default function DrawerNav(){
 
                 options={
                     {
-                        title:'Promtions',
+                        title:'Connections',
                         headerShown: false,
                         drawerIcon:({focussed,size})=>(
                             <Icon 
                                 type="material-community"
-                                name="hand-heart"
+                                name="account-multiple-plus-outline"
                                 color={focussed ? '#7cc' :colors.gray2}
                                 size={size}
                             />
@@ -115,7 +161,7 @@ export default function DrawerNav(){
                     drawerIcon:({focussed,size})=>(
                         <Icon 
                             type="material-community"
-                            name="help-box"
+                            name="chat-question"
                             color={focussed ? '#7cc' :colors.gray2}
                             size={size}
                         />
@@ -124,6 +170,7 @@ export default function DrawerNav(){
                 }
             }
         /> 
+        
             
         </Drawer.Navigator>
     )

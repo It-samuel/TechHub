@@ -25,12 +25,12 @@ export default function DrawerHeader(props){
                     </View>
                     <View style={{flexDirection: 'row', justifyContent:"space-evenly", marginRight:25}}>
                             <View style={{ marginHorizontal:7, paddingVertical:10}} >
+                                <Text style={{color:'white', alignSelf:'center'}}>Followers</Text>
                                 <Text style={{color:'white', alignSelf:'center'}}>0</Text>
-                                <Text style={{color:'white', alignSelf:'center'}}>My Favorites</Text>
                             </View>
                             <View style={{top:13}}>
-                                <Text style={{color:'white', alignSelf:'center'}}>0</Text>
-                                <Text style={{color:'white', alignSelf:'center', }}>Cart Items</Text>
+                                <Text style={{color:'white', alignSelf:'center'}}>Following</Text>
+                                <Text style={{color:'white', alignSelf:'center', }}>0</Text>
                             </View>
                         </View>
                     
@@ -71,13 +71,13 @@ const styles = StyleSheet.create({
         borderTopColor:colors.gray4
     },
     preferencesText:{
-        color:colors.gray2,
+        color:"#a9abab",
         fontSize:17,
         fontWeight:'bold',
         paddingLeft:10
     },
     switch:{
-        color:colors.gray3,
+        color:"#787474",
         fontSize:17,
         fontWeight:'bold',
         paddingLeft:10
