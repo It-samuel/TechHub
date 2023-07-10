@@ -98,7 +98,7 @@ export default function HomeScreen({navigation}){
                     data={jobsdata}
                     keyExtractor={(item, index)=>index.toString}
                     renderItem={({item})=>(
-                        <View style={{marginRight:5}}> 
+                        <View style={{marginRight:5}}>
                             <JobsCard
                                 screenwidth={SCREEN_WIDTH*0.85}
                                 jobTitle = {item.jobTitle}
